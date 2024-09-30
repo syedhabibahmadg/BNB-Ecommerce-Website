@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        .contact-form {
+            background: #fff;
+            margin-top: 10%;
+            margin-bottom: 5%;
+            width: 70%;
+        }
+
+        .contact-form .form-control {
+            border-radius: 1rem;
+        }
+
+        .contact-image {
+            text-align: center;
+        }
+
+        .contact-image img {
+            border-radius: 6rem;
+            width: 11%;
+            margin-top: -3%;
+            transform: rotate(29deg);
+        }
+
+        .contact-form form {
+            padding: 14%;
+        }
+
+        .contact-form form .row {
+            margin-bottom: -7%;
+        }
+
+        .contact-form h3 {
+            margin-bottom: 8%;
+            margin-top: -10%;
+            text-align: center;
+            color: #0062cc;
+        }
+
+        .contact-form .btnContact {
+            width: 50%;
+            border: none;
+            border-radius: 1rem;
+            padding: 1.5%;
+            background: #dc3545;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btnContactSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            color: #fff;
+            background-color: #0062cc;
+            border: none;
+            cursor: pointer;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
+            /* Font-family set kiya gaya */
+        }
+
+        .customer-sale {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            flex-wrap: wrap;
+            /* Allows content to wrap on smaller screens */
+        }
+
+        .customer-sale h2 {
+            font-size: 12px;
+            /* Base font size */
+            font-weight: 600;
+            background-color: transparent;
+            /* Remove redundant background */
+            margin: 0;
+        }
+
+        .customer-sale a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: black;
+            /* Space between icon and text */
+            transition: color 0.3s, text-decoration 0.3s;
+            font-size: 18px;
+        }
+
+        .customer-sale a:hover,
+        .customer-sale a:focus {
+            color: #ffc107;
+            /* Change color on hover/focus */
+            text-decoration: underline;
+        }
+
+
+        /* Responsive Typography */
+        @media (min-width: 600px) {
+            .customer-sale h2 {
+                font-size: 1.25rem;
+            }
+
+            .customer-sale i {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .customer-sale h2 {
+                font-size: 1.5rem;
+            }
+
+            .customer-sale i {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Optional: Add some spacing on smaller screens */
+        @media (max-width: 599px) {
+            .customer-sale {
+                padding: 15px;
+            }
+        }
+
+        .header,
+        .mobile-navbar {
+            display: none;
+            /* Hide both navbars by default */
+        }
+
+        /* Desktop Navbar Styles */
+        .desktop-navbar {
+            display: flex;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: white;
+            /* White background */
+            padding: 15px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .logo img {
+            width: 110px;
+        }
+
+        .logo {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+        .header-links {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2px;
+            cursor: pointer;
+            background-color: white;
+            /* White background for links */
+        }
+
+        .header-icons i {
+            background: white;
+        }
+
+        .upper-links,
+        .lower-links {
+            background-color: white;
+        }
+
+        .upper-links li,
+        .lower-links li {
+            background-color: white;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .upper-links ul,
+        .lower-links ul {
+            display: flex;
+            gap: 17px;
+            color: black;
+            list-style: none;
+            background-color: white;
+            /* Ensure ul has white background */
+        }
+
+        .header-icons {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #1a1a1a;
+            gap: 16px;
+            background-color: white;
+            /* White background for icons */
+        }
+
+        .header-icons i {
+            color: #606060;
+            cursor: pointer;
+        }
+
+        .header-links li:hover,
+        .header-icons i:hover {
+            color: #635a5a;
+            /* Change hover color */
+        }
+
+        /* Mobile Navbar Styles */
+        @media (max-width: 768px) {
+            .desktop-navbar {
+                display: none;
+                /* Hide desktop navbar on mobile */
+            }
+
+            .mobile-navbar {
+                display: block;
+                /* Show mobile navbar on mobile */
+                background-color: white;
+                /* White background for mobile navbar */
+            }
+        }
+
+        .navbar .nav-link {
+            color: black;
+            /* Text color for mobile links */
+        }
+
+        /* Change link colors on hover */
+        .navbar .nav-link:hover {
+            color: #635a5a;
+            /* Change hover color for mobile links */
+        }
+
+        /* Desktop view */
+        @media (min-width: 769px) {
+            .header {
+                display: flex;
+                /* Show header for desktop */
+            }
+        }
+
+
+        .background-image {
+            width: 1349px;
+            height: 499px;
+            background-size: cover;
+            background-position: center;
+            animation: slider 8s linear infinite;
+        }
+
+        @keyframes slider {
+            0% {
+                background-image: url('images/bn1.webp');
+            }
+
+            20% {
+                background-image: url('images/bn1.webp');
+            }
+
+            40% {
+                background-image: url('images/bn1.webp');
+            }
+
+            60% {
+                background-image: url('images/bn2.webp');
+            }
+
+            80% {
+                background-image: url('images/bn2.webp');
+            }
+
+            86% {
+                background-image: url('images/bn2.webp');
+            }
+
+            100% {
+                background-image: url('images/bn1.webp');
+            }
+
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            padding: 20px;
+        }
+
+        /* Base Styles (Desktop) */
+        .category {
+            padding: 30px;
+            background-color: #f9f9f9;
+            /* Light background for contrast */
+        }
+
+        .heading {
+            background: #F9F9F9;
+        }
+
+        .heading h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #333;
+            background-color: #F9F9F9;
+        }
+
+        .category-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px;
+            gap: 20px;
+            flex-wrap: wrap;
+            height: 430px;
+            background-color: #F9F9F9;
+            margin-top: 0;
+        }
+
+        .category-image-container {
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Soft shadow */
+            border-radius: 10px;
+            /* Rounded corners */
+            overflow: hidden;
+            /* Ensures the image stays inside the border */
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth interaction */
+            cursor: pointer;
+        }
+
+        .category-image-container:hover {
+            transform: translateY(-10px);
+            /* Lift effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Deepen shadow on hover */
+        }
+
+        .category-image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.8s ease;
+        }
+
+        .category-image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .category-image-container h3 {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            background-color: white;
+            /* White background for the font */
+            padding: 10px 0;
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow under text */
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .category-image-container h3:hover {
+            color: #555;
+            /* Slight color change on hover */
+        }
+
+        /* Responsive Styles */
+
+        /* Tablet Screens (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .category-image {
+                gap: 15px;
+            }
+
+            .category-image-container {
+                width: 280px;
+                padding: 15px;
+            }
+
+            .category-image-container h3 {
+                font-size: 18px;
+            }
+        }
+
+        /* Small Tablets and Large Mobile Screens (max-width: 768px) */
+        @media (max-width: 768px) {
+            .category-image {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .category-image-container {
+                width: 240px;
+                padding: 12px;
+            }
+
+            .category-image-container h3 {
+                font-size: 16px;
+            }
+        }
+
+        /* Mobile Screens (max-width: 480px) */
+        @media (max-width: 480px) {
+            .category-image-container {
+                width: 100%;
+                max-width: 200px;
+                padding: 10px;
+            }
+
+            .category-image-container img {
+                width: 100%;
+            }
+
+            .category-image-container h3 {
+                font-size: 14px;
+                padding: 8px 0;
+            }
+        }
+
+
+
+        .Contact-us {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            width: 50%;
+            padding: 50px;
+        }
+
+        .form input {
+            border: 1px solid #8f8b8b;
+            font-size: 12px;
+            padding: 10px;
+        }
+
+        .form p {
+            margin-bottom: 10px;
+        }
+
+        .form textarea {
+            padding: 17px;
+            height: 250px;
+        }
+
+        .form button {
+            width: 80px;
+            border: none;
+            background: black;
+            color: white;
+            padding: 11px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .form button:hover {
+            background: #75eb07;
+            color: black;
+        }
+
+        .contact-map {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .footer {
+            background-color: #f0f0f0;
+            width: 100%;
+            padding: 40px 20px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Footer Grid Layout */
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer Sections */
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Headings */
+        .footer-section h2 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        .footer-section h3 {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Text and Links */
+        .footer-section p,
+        .footer-section span {
+            color: #6D6D6D;
+            font-size: 16px;
+        }
+
+        .footer-section a {
+            color: #6D6D6D;
+            text-decoration: none;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #000;
+            /* Change to desired hover color */
+            text-decoration: underline;
+        }
+
+        /* Contact Information */
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .contact-info i {
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Newsletter Signup */
+        .newsletter input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .newsletter button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter button:hover {
+            background-color: #555;
+        }
+
+        /* Divider Line */
+        .divider {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .divider svg {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            font-size: 24px;
+            color: #555;
+            margin-right: 55px;
+        }
+
+        .social-media a {
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #000;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .social-media {
+                display: flex;
+                flex-direction: column-reverse;
+                align-content: space-around;
+                align-items: center;
+            }
+
+            .copyright {
+                margin-left: 30px;
+                font-size: 16px;
+            }
+
+            .footer {
+                padding: 54px;
+            }
+
+            .background-image {
+                width: 412px;
+                height: 200px;
+                background-position: top left;
+            }
+        }
+
+
+        .about-section {
+            background-color: white;
+            padding: 50px 0px;
+            width: 100%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 27px;
+        }
+
+        /* Headings */
+        .about-section h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .about-section p br {
+            margin-bottom: 20px;
+        }
+
+        /* Button */
+        .learn-more-btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .learn-more-btn:hover {
+            background-color: #555;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .about-section h1 {
+                font-size: 28px;
+            }
+
+            .about-section p {
+                font-size: 16px;
+            }
+
+            .category-image {
+                flex-direction: row-reverse;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 9px;
+                gap: 20px;
+                flex-wrap: nowrap;
+                height: 167px;
+                background-color: #F9F9F9;
+                margin-top: 0;
+            }
+
+            .customer-sale h2 a {
+                font-size: 15px;
+            }
+
+            .copyright {
+                margin-left: 20px !important;
+            }
+
+            .Icons a i {
+                margin-right: 10px;
+            }
+        }
+
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* Best Selling Section */
+        .best-selling-section {
+            background-color: #f0f0f0;
+        }
+
+        .best-selling-section h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* Product Card */
+        .product-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            max-width: 295px;
+            margin: 0 auto 20px auto;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            background: white;
+
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            background: white;
+        }
+
+        .stars {
+            background-color: white;
+        }
+
+        .stars i {
+            color: #ffc107;
+            margin-right: 2px;
+            background-color: white;
+        }
+
+        .rating-value {
+            margin-left: 8px;
+            color: #777;
+            font-size: 0.9rem;
+            background-color: white;
+        }
+
+        .review-count {
+            margin-left: 10px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            background: white;
+        }
+
+        strong {
+            background: white;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background: white;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .add-to-cart {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .add-to-cart:hover {
+            background-color: #218838;
+        }
+
+        .view-details {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .view-details:hover {
+            background-color: #0069d9;
+        }
+
+        /* Video Section */
+        .video-section {
+            background-color: #f0f0f0;
+            padding: 60px 0;
+        }
+
+        .product-video {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .video-content h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .video-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Make the columns stack vertically on smaller screens */
+        @media (max-width: 991px) {
+            .video-content {
+                text-align: center;
+            }
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .best-selling-section h1 {
+                font-size: 2rem;
+            }
+
+            .product-title {
+                font-size: 1rem;
+            }
+
+            .product-price {
+                font-size: 1.3rem;
+            }
+
+            .btn {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-actions {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .product-video {
+                width: 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="customer-sale">
+        <h2>
+            <a href="tel:+042111000990" aria-label="Call Customer Support">
+                Customer Support 📞 042-111-000-990
+            </a>
+        </h2>
+    </div>
+
+    <div class="header desktop-navbar">
+        <div class="logo">
+            <img src="images/logo.avif" alt="logo" srcset="">
+        </div>
+        <div class="header-links">
+            <div class="upper-links">
+                <ul>
+                    <li>Home</li>
+                    <li>New Arrivals</li>
+                    <li>Shop All</li>
+                    <li>Skin Care</li>
+                    <li>Hair Care</li>
+                    <li>Bundle Deals</li>
+                    <li>Vitamin C Products</li>
+                </ul>
+            </div>
+            <div class="lower-links">
+                <ul>
+                    <li>Rice Extract Products</li>
+                    <li>Happy Customers</li>
+                    <li>Beauty Blog</li>
+                </ul>
+            </div>
+        </div>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-user"></i>
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </div>
+
+    <nav class="navbar mobile-navbar sticky-top navbar-expand-lg">
+        <div class="container" style="background-color: white !important;">
+            <img src="images/logo.avif" alt="logo" srcset="" style="width:64px;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Other</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+    <div class="background-image" style="cursor: pointer;">
+
+    </div>
+
+    <div class="category">
+        <div class="heading">
+            <h2>Shop By Category</h2>
+        </div>
+        <div class="category-image">
+            <div class="category-image-container">
+                <img src="images/c1.webp" alt="" width="380" height="380">
+                <h3>Gel</h3>
+            </div>
+            <div class="category-image-container">
+                <img src="images/c2.webp" alt="" width="380" height="380">
+                <h3>Face Wash</h3>
+            </div>
+            <div class="category-image-container">
+                <img src="images/c3.webp" alt="" width="380" height="380">
+                <h3>Face Mask</h3>
+            </div>
+        </div>
+        <div class="category-image">
+            <div class="category-image-container">
+                <img src="images/c4.webp" alt="" width="380" height="380">
+                <h3>Shampoo</h3>
+            </div>
+            <div class="category-image-container">
+                <img src="images/c5.webp" alt="" width="380" height="380">
+                <h3>Tree Tee Serum</h3>
+            </div>
+            <div class="category-image-container">
+                <img src="images/c6.webp" alt="" width="380" height="380">
+                <h3>Rice Face Mask</h3>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- best selling -->
+    <section class="best-selling-section">
+        <div class="container">
+            <h1>Best Selling</h1>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <img src="images/p1.avif" alt="BNB Rice Extract Face Wash" class="product-image" loading="lazy">
+                    <h2 class="product-title">BNB Rice Extract Face Wash</h2>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">(4.9)</span>
+                        <span class="review-count">72 Reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <strong>Rs. 999</strong>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart" aria-label="Add BNB Rice Extract Face Wash to Cart">Add to
+                            Cart</button>
+                        <button class="btn view-details">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <img src="images/p2.avif" alt="BNB Rice Extract Face Wash" class="product-image" loading="lazy">
+                    <h2 class="product-title">BNB Rice Extract Face Wash</h2>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">(4.9)</span>
+                        <span class="review-count">72 Reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <strong>Rs. 999</strong>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart" aria-label="Add BNB Rice Extract Face Wash to Cart">Add to
+                            Cart</button>
+                        <button class="btn view-details">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <img src="images/p3.avif" alt="BNB Rice Extract Face Wash" class="product-image" loading="lazy">
+                    <h2 class="product-title">BNB Rice Extract Face Wash</h2>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">(4.9)</span>
+                        <span class="review-count">72 Reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <strong>Rs. 999</strong>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart" aria-label="Add BNB Rice Extract Face Wash to Cart">Add to
+                            Cart</button>
+                        <button class="btn view-details">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <img src="images/p4.avif" alt="BNB Rice Extract Face Wash" class="product-image" loading="lazy">
+                    <h2 class="product-title">BNB Rice Extract Face Wash</h2>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">(4.9)</span>
+                        <span class="review-count">72 Reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <strong>Rs. 999</strong>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart" aria-label="Add BNB Rice Extract Face Wash to Cart">Add to
+                            Cart</button>
+                        <button class="btn view-details">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 5 -->
+                <article class="product-card">
+                    <img src="images/p5.avif" alt="BNB Rice Extract Face Wash" class="product-image" loading="lazy">
+                    <h2 class="product-title">BNB Rice Extract Face Wash</h2>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">(4.9)</span>
+                        <span class="review-count">72 Reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <strong>Rs. 999</strong>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart" aria-label="Add BNB Rice Extract Face Wash to Cart">Add to
+                            Cart</button>
+                        <button class="btn view-details">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 6 -->
+                <article class="product-card">
+                    <img src="images/p6.avif" alt="BNB Rice Extract Face Wash" class="product-image" loading="lazy">
+                    <h2 class="product-title">BNB Rice Extract Face Wash</h2>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">(4.9)</span>
+                        <span class="review-count">72 Reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <strong>Rs. 999</strong>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart" aria-label="Add BNB Rice Extract Face Wash to Cart">Add to
+                            Cart</button>
+                        <button class="btn view-details">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 7 -->
+                <article class="product-card">
+                    <img src="images/p7.avif" alt="BNB Rice Extract Face Wash" class="product-image" loading="lazy">
+                    <h2 class="product-title">BNB Rice Extract Face Wash</h2>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">(4.9)</span>
+                        <span class="review-count">72 Reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <strong>Rs. 999</strong>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart" aria-label="Add BNB Rice Extract Face Wash to Cart">Add to
+                            Cart</button>
+                        <button class="btn view-details">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Product 8 -->
+                <article class="product-card">
+                    <img src="images/p8.avif" alt="BNB Rice Extract Face Wash" class="product-image" loading="lazy">
+                    <h2 class="product-title">BNB Rice Extract Face Wash</h2>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-value">(4.9)</span>
+                        <span class="review-count">72 Reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <strong>Rs. 999</strong>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn add-to-cart" aria-label="Add BNB Rice Extract Face Wash to Cart">Add to
+                            Cart</button>
+                        <button class="btn view-details">View Details</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Column: Video -->
+                
+
+                <!-- Right Column: Content -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="video-content">
+                        <h2>Glow & Lovely BB Cream - Your Daily Glow</h2>
+                        <p>Glow & Lovely BB Cream, formerly known as Fair & Lovely BB Cream, offers the perfect
+                            combination
+                            of instant coverage and natural glow. Enriched with multi-vitamins, it not only provides you
+                            with
+                            an even skin tone but also helps to hide imperfections and gives you a radiant finish.</p>
+                        <p>Watch the video to learn how you can get the perfect everyday look with Glow & Lovely BB
+                            Cream,
+                            giving you a flawless, glowing complexion in just a few steps.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12"></div>
+                    <video src="videos/Glow%20&%20Lovely%20(formerly%20Fair%20&%20Lovely)%20BB%20Cream%20(Hindi).mp4"
+                        autoplay muted loop class="product-video">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- About 1 - Bootstrap Brain Component -->
+    <section class="py-3 py-md-5">
+        <div class="container">
+            <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+                <div class="col-12 col-lg-6 col-xl-5">
+                    <img class="img-fluid rounded" loading="lazy"
+                        src="images\441581776_966053341591910_8396076109723920256_n.webp" alt="About 1">
+                </div>
+                <div class="col-12 col-lg-6 col-xl-7">
+                    <div class="row justify-content-xl-center">
+                        <div class="col-12 col-xl-11">
+                            <h2 class="mb-3">Who Are We?</h2>
+                            <p class="lead fs-4 text-secondary mb-3">At BNB Beauty, we empower individuals to create
+                                stunning brands and exceptional beauty products. Our mission is to provide captivating
+                                services that resonate with our customers.</p>
+                            <p class="mb-5">As a rapidly growing company, we remain anchored in our core values:
+                                collaboration, innovation, and unwavering customer satisfaction. We constantly seek new
+                                ways to enhance our product offerings and elevate the beauty experience.</p>
+                            <div class="row gy-4 gy-md-0 gx-xxl-5">
+                                <div class="col-12 col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-4 text-primary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h2 class="h4 mb-3">Versatile Brand</h2>
+                                            <p class="text-secondary mb-0">We craft beauty experiences that resonate
+                                                across all platforms, embracing the essence of versatility.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-4 text-primary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h2 class="h4 mb-3">Digital Agency</h2>
+                                            <p class="text-secondary mb-0">We believe in innovation, merging creativity
+                                                with sophistication to redefine beauty standards.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+        </div>
+        <form method="post">
+            <h3>Drop Us a Message</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *"
+                            value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <textarea name="txtMsg" class="form-control" placeholder="Your Message *"
+                            style="width: 100%; height: 150px;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Contact Information Section -->
+            <div class="footer-section contact-info">
+                <div>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quod possimus minima?</span>
+                </div>
+                <div>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                </div>
+                <div>
+                    <h2>For Customer Support</h2>
+                    <h3>10 A.M to 8 P.M (Monday to Sat)</h3>
+                </div>
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <span><a href="tel:+9233100000000">92-331-00000000</a></span>
+                </div>
+                <div>
+                    <i class="fab fa-whatsapp"></i>
+                    <span><a href="https://wa.me/9233100000000">92-331-00000000</a></span>
+                </div>
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <span><a href="mailto:bnbproducts@gmail.com">bnbproducts@gmail.com</a></span>
+                </div>
+            </div>
+            <div class="footer-section">
+                <div
+                    style="max-width: 100%; margin: auto; padding: 2px; border: 2px solid #e2e1e1; border-radius: 8px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217759.99380853778!2d74.3343893!3d31.482940349999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Punjab!5e0!3m2!1sen!2s!4v1725905399315!5m2!1sen!2s"
+                        style="width: 100%; height: 350px; border: none;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </div>
+            <!-- Shop Section -->
+            <div class="footer-section">
+                <h2>Shop</h2>
+                <a href="#">Best Selling</a>
+                <a href="#">Rice Extract Products</a>
+                <a href="#">Vitamin C Products</a>
+                <a href="#">Happy Customer</a>
+            </div>
+
+            <!-- Help Section -->
+            <div class="footer-section">
+                <h2>Help</h2>
+                <a href="#">Happy Customer</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Refund Policy</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQs</a>
+            </div>
+
+            <!-- Newsletter Signup Section -->
+            <div class="footer-section newsletter">
+                <h2>Newsletter Signup</h2>
+                <p>Subscribe to our newsletter and get 5% off your first purchase</p>
+                <input type="text" placeholder="Email">
+                <button type="button">Subscribe</button>
+            </div>
+        </div>
+
+        <!-- Divider Line -->
+        <div class="divider">
+            <svg height="2" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="1" x2="100%" y2="1" stroke="#555353" stroke-width="2" />
+            </svg>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-media" style="display: flex;justify-content: space-between ">
+            <div class="copyright" style="margin-left: 60px; font-size: 16px;">© Copyright BNB Products 2024</div>
+            <div class="Icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>
